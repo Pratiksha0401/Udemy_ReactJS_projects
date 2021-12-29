@@ -24,10 +24,22 @@ const NewExpense = (props) => {
     }
 
     return (
-        <div className='new-expense'>
-            {!isEditing ?  (<button onClick={editingHandler}> Add New Expense</button>) 
-                        : (<ExpenseForm onSaveExpenseData={OnSaveExpenseHandler} onCancelHandler={stopEditing} />) }
-        </div>
+         //  alternatrive to ternary operator
+         <div className='new-expense'>
+                {!isEditing && (
+                 <button onClick={editingHandler}>Add New Expense</button>
+                  )}
+                  {isEditing && (
+                    <ExpenseForm
+                      onSaveExpenseData={OnSaveExpenseHandler}
+                      onCancelHandler={stopEditing}
+                    />
+                  )}
+                  </div> 
+        // <div className='new-expense'>
+        //     {!isEditing ?  (<button onClick={editingHandler}> Add New Expense</button>) 
+        //                 : (<ExpenseForm onSaveExpenseData={OnSaveExpenseHandler} onCancelHandler={stopEditing} />) }
+        // </div>
     );
 }
 
